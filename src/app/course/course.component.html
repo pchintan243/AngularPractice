@@ -1,1 +1,23 @@
-<p>course works!</p>
+<div class="main">
+    <div class="row cont">
+        <ng-container *ngFor="let course of course">
+            <div class="card p-0 col-md-3">
+                <img [src]="course.image" class="card-img-top img-card" alt="Fissure in Sandstone" />
+                <div class="card-body">
+                    <h5 class="card-title">{{course.course_name}}</h5>
+                    <p class="card-text desc">{{course.description}}</p>
+                    <div class="price-tag">
+                        <span class="prem-tag"
+                            [ngStyle]="{color: course.type === 'Premium' ? 'red' : 'green'}">{{course.type}}</span>
+                        <span class="pr-tag"><strong>Price:</strong> {{course.price}}$</span>
+                    </div>
+                    <div class="btn-class">
+                        <button class="btn btn-primary my-2">Buy Now</button>
+                        <button class="btn btn-danger my-2" routerLink="/Courses/Course/{{course.id}}">Show
+                            details</button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

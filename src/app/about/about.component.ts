@@ -16,7 +16,6 @@ export class AboutComponent {
   }
   home() {
     // Path for this one --> http://localhost:4200/Home
-
     this.route.navigateByUrl('/Home')
     // this.route.navigateByUrl('Home') --> same as above
   }

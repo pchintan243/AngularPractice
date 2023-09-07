@@ -9,13 +9,16 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorComponent } from './error/error.component';
+import { CoursesService } from './Service/courses.service';
+import { OneCourseComponent } from './course/one-course/one-course.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'About', component: AboutComponent },
-  { path: 'Course', component: CourseComponent },
+  { path: 'Courses', component: CourseComponent },
+  { path: 'Courses/Course/:id', component: OneCourseComponent },
   { path: '**', component: ErrorComponent },
 ]
 @NgModule({
@@ -26,13 +29,14 @@ const appRoute: Routes = [
     AboutComponent,
     HomeComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    OneCourseComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [],
+  providers: [CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,50 @@
+/* Reset some default styles for better consistency */
+body,
+h1,
+p,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.course-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.author {
+    font-size: 1rem;
+    color: #666;
+}
+
+.duration,
+.type,
+.price {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #888;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    color: #333;
+}

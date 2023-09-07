@@ -20,6 +20,16 @@ const appRoute: Routes = [
   { path: 'About', component: AboutComponent },
   { path: 'Courses', component: CourseComponent },
   { path: 'Courses/Course/:id', component: OneCourseComponent },
+  // Example of child/nested routes
+  // You can add multiple child routes inside the routes.
+  // Also you want to add router-outlet in one-course component
+  {
+    path: 'Courses', children: [
+      { path: 'Course/:id', component: OneCourseComponent },
+      { path: 'Course/:id', component: OneCourseComponent },
+      { path: 'Course/:id', component: OneCourseComponent }
+    ]
+  },
   { path: '**', component: ErrorComponent },
 ]
 @NgModule({

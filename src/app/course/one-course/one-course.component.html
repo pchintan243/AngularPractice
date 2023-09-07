@@ -1,12 +1,23 @@
 <div class="card">
     <img [src]="course.image" alt="Course Image" class="card-image">
     <div class="card-content">
-        <h2 class="course-title">{{course.course_title}}</h2>
+        <h2 class="course-title" *ngIf="!editMode">{{course.course_name}}</h2>
+        <div *ngIf="editMode">
+            <input type="text" [(ngModel)]="course.course_name">
+        </div>
         <p class="author">{{course.author}}</p>
         <p class="duration">{{course.duration}}</p>
         <p class="type">{{course.type}}</p>
         <p class="price">{{course.price}}</p>
         <p class="description">{{course.description}}</p>
+
+        <!-- Query parameters -->
+        <button [routerLink]="['/Courses/Course', course.id]" [queryParams]="{editMode: true}"
+            class="btn btn-danger my-2">Edit Title</button>
+        <br>
         <button [routerLink]="['/Courses']" class="btn btn-danger my-2">Back To Courses</button>
+        <br>
+        <button class="btn btn-danger my-2" (click)="editMode=false"
+            [routerLink]="['/Courses/Course', course.id]">Update</button>
     </div>
 </div>

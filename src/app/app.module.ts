@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorComponent } from './error/error.component';
 import { CoursesService } from './Service/courses.service';
 import { OneCourseComponent } from './course/one-course/one-course.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const appRoute: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [CoursesService],

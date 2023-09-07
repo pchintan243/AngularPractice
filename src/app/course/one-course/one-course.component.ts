@@ -11,6 +11,7 @@ export class OneCourseComponent implements OnInit, OnDestroy {
   course: any;
   courseId: any;
   routeParams: any;
+  editMode: boolean = false;
 
   constructor(private ActivatedRoute: ActivatedRoute, private CoursesService: CoursesService) { }
 
@@ -30,8 +31,12 @@ export class OneCourseComponent implements OnInit, OnDestroy {
       this.courseId = val.get('id')
       this.course = this.CoursesService.courses.find(x => x.id == this.courseId);
     })
+
+    this.ActivatedRoute.queryParamMap.subscribe((param) => {
+      this.editMode = Boolean(param.get('editMode'));
+    })
   }
-  
+
   ngOnDestroy() {
     this.routeParams.unsubscribe();
   }

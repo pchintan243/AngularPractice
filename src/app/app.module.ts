@@ -12,15 +12,13 @@ import { ErrorComponent } from './error/error.component';
 import { CoursesService } from './Service/courses.service';
 import { OneCourseComponent } from './course/one-course/one-course.component';
 import { FormsModule } from '@angular/forms';
-import { IsCourseGuard } from './Service/course-guard.service';
-import { AuthService } from './Service/auth.service';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'About', component: AboutComponent },
-  { path: 'Courses', component: CourseComponent, canActivate: [IsCourseGuard] },
+  { path: 'Courses', component: CourseComponent },
   { path: 'Courses/Course/:id', component: OneCourseComponent },
   // Example of child/nested routes
   // You can add multiple child routes inside the routes.
@@ -41,16 +39,16 @@ const appRoute: Routes = [
     ContactComponent,
     AboutComponent,
     HomeComponent,
-    NavbarComponent,
     ErrorComponent,
-    OneCourseComponent
+    OneCourseComponent, 
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [CoursesService, AuthService],
+  providers: [CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

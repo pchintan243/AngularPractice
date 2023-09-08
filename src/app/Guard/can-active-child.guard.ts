@@ -1,11 +1,11 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateChildFn, Router } from '@angular/router';
 
-export const canActiveGuard: CanActivateFn = (route, state) => {
+export const canActiveChildGuard: CanActivateChildFn = (childRoute, state) => {
   const router = inject(Router);
   // const router = new Router;
-  console.log("fds");
-  
+  console.log("child");
+
   const token = localStorage.getItem('token');
   if (token) {
     return true;

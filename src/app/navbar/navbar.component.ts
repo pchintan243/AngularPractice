@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { canActiveGuard } from './../Guard/can-active.guard';
 import { Component } from '@angular/core';
 
 @Component({

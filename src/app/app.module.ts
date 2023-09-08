@@ -39,6 +39,9 @@ const appRoute: Routes = [
     ]
   },
   { path: '**', component: ErrorComponent },
+
+  // canMatch guard is use for when more than one path name are same & we want to invoke the component based on the condition.
+  // Make sure your highest priority component write first
 ]
 @NgModule({
   declarations: [

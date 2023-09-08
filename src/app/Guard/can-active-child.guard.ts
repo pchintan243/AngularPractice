@@ -4,7 +4,6 @@ import { CanActivateChildFn, Router } from '@angular/router';
 export const canActiveChildGuard: CanActivateChildFn = (childRoute, state) => {
   const router = inject(Router);
   // const router = new Router;
-  console.log("child");
 
   const token = localStorage.getItem('token');
   if (token) {

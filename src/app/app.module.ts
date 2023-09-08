@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { canActiveGuard } from './Guard/can-active.guard';
 import { canActiveChildGuard } from './Guard/can-active-child.guard';
 import { canDeActivateGuard } from './Guard/can-de-activate.guard';
+import { apiResolver } from './Resolver/api.resolver';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const appRoute: Routes = [
   {
     path: 'Courses',
     component: CourseComponent,
+    resolve: { isResovled: apiResolver },
     canActivateChild: [canActiveChildGuard],
     children: [
       { path: 'Course/:id', component: OneCourseComponent }

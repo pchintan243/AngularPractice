@@ -10,7 +10,6 @@ export class ContactComponent implements OnInit {
   username: string = '';
 
   ngOnInit() {
-    console.log(this.username);
   }
 
 

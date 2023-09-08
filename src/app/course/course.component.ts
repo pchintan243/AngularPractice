@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../Service/courses.service';
 
@@ -20,9 +21,12 @@ export class CourseComponent implements OnInit {
     description: string
   }[] = [];
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.course = this.coursesService.courses;
+
+    // console.log(this.ActivatedRoute.snapshot.data);
+
   }
 }

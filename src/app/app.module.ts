@@ -12,12 +12,13 @@ import { ErrorComponent } from './error/error.component';
 import { CoursesService } from './Service/courses.service';
 import { OneCourseComponent } from './course/one-course/one-course.component';
 import { FormsModule } from '@angular/forms';
+import { canActiveGuard } from './Guard/can-active.guard';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Contact', component: ContactComponent },
-  { path: 'About', component: AboutComponent },
+  { path: 'About', component: AboutComponent, canActivate: [canActiveGuard] },
   { path: 'Courses', component: CourseComponent },
   { path: 'Courses/Course/:id', component: OneCourseComponent },
   // Example of child/nested routes
@@ -40,7 +41,7 @@ const appRoute: Routes = [
     AboutComponent,
     HomeComponent,
     ErrorComponent,
-    OneCourseComponent, 
+    OneCourseComponent,
     NavbarComponent
   ],
   imports: [

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { canActiveGuard } from './../Guard/can-active.guard';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,11 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor() { }
+  constructor(private Router: Router) { }
   login() {
-
+    localStorage.setItem("token", Math.random().toString());
   }
   logout() {
-
+    localStorage.removeItem('token');
+    this.Router.navigate(['Home']);
   }
 }

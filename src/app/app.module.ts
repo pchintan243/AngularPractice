@@ -14,11 +14,16 @@ import { OneCourseComponent } from './course/one-course/one-course.component';
 import { FormsModule } from '@angular/forms';
 import { canActiveGuard } from './Guard/can-active.guard';
 import { canActiveChildGuard } from './Guard/can-active-child.guard';
+import { canDeActivateGuard } from './Guard/can-de-activate.guard';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
-  { path: 'Contact', component: ContactComponent },
+  {
+    path: 'Contact',
+    component: ContactComponent,
+    canDeactivate: [canDeActivateGuard]
+  },
   { path: 'About', component: AboutComponent, canActivate: [canActiveGuard] },
   // { path: 'Courses', component: CourseComponent, canActivate: [canActiveGuard] },
   { path: 'Courses/Course/:id', component: OneCourseComponent },

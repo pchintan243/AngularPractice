@@ -59,7 +59,7 @@ const appRoute: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute, { enableTracing: true })
   ],
   providers: [CoursesService],
   bootstrap: [AppComponent]
